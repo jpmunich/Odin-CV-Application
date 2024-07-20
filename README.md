@@ -1,1 +1,1 @@
-# Odin-CV-Application
+# React + Vite
