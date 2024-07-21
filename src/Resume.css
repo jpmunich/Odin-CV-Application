@@ -1,0 +1,52 @@
+#resume-container {
+  background-color: #ffc8dd;
+  margin-left: auto;
+  min-width: 400px;
+  min-height: 600px;
+  width: 75%;
+}
+
+#header-container {
+  background-color: #ffafcc;
+}
+
+#name-container {
+  padding: 16px 20px 0 0;
+  text-align: right;
+}
+
+#header-info-container {
+  font-size: 1rem;
+  padding: 0 20px 12px 0;
+}
+
+#header-info-top-column {
+  display: flex;
+  gap: 10px;
+  justify-content: end;
+}
+
+#header-info-bottom-column {
+  padding-top: 2px;
+  text-align: end;
+}
+
+#education-container,
+#experience-container {
+  padding: 24px 24px 0 24px;
+}
+
+#education-container > h3,
+#experience-container > h3 {
+  width: 100%;
+  padding: 4px;
+  text-align: center;
+  background-color: #cdb4db;
+  box-shadow: 2px 2px 5px rgb(0, 0, 0, 0.2);
+}
+
+#resume-info-container {
+  padding: 20px 0 0 0;
+  display: flex;
+  gap: 16px;
+}
