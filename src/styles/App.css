@@ -1,0 +1,4 @@
+.ui-container {
+  display: flex;
+  gap: 48px;
+}
