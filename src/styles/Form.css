@@ -3,8 +3,9 @@
 }
 
 .form-container {
+  padding: 36px;
   color: #213657;
-  width: 35%;
+  width: 40%;
 }
 
 .personal-information-form-container,

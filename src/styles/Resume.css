@@ -1,6 +1,8 @@
 .resume-container {
   background-color: #e5f1fa;
-  margin-left: auto;
+  margin: 36px auto;
+  position: relative;
+  right: 36px;
   width: 60%;
   min-width: 600px;
   height: 800px;
