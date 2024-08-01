@@ -1,54 +1,23 @@
 import { useState } from 'react';
+import PersonalInformationResumeSection from './personal-info/PersonalInformationResumeSection';
 import '../styles/Resume.css';
 
-function Resume() {
-    return (
-        <div className='resume-container'>
-            <ResumeHeader />
-            <ResumeEducationSection />
-            <ResumeExperienceSection />
-        </div>
-    );
-}
-
-function ResumeHeader() {
-    return (
-        <div id="header-container">
-            <header id="name-container">
-                <h1>Hello World</h1>
-            </header>
-            <section id="header-info-container">
-                <div id="header-info-top-column">
-                    <p>22008 43rd Dr. SE  |</p>
-                    <p>Münich, Germany 56079  |</p>
-                    <p>(555)-555-5555</p>
-                </div>
-                <div id="header-info-bottom-column">
-                    <p>concernedape08@gmail.com</p>
-                </div>
-            </section>
-        </div>
-    );
-}
-
-function ResumeEducationSection() {
-    return (
-        <section id="education-container">
-            <h3>Education</h3>
-            <ResumeInformationUnit />
-            <ResumeInformationUnit />
-        </section>
-    );
-}
-
-function ResumeExperienceSection() {
-    return (
-        <section id="experience-container">
-            <h3>Experience</h3>
-            <ResumeInformationUnit />
-        </section>
-    )
-}
+function Resume({ personalInfo }) {
+        return (
+            <div className="resume-container">
+                <PersonalInformationResumeSection name={personalInfo.name} email={personalInfo.email} phone={personalInfo.phone} location={personalInfo.location} />
+                <section id="education-container">
+                    <h3>Education</h3>
+                    <ResumeInformationUnit />
+                    <ResumeInformationUnit />
+                </section>
+                <section id="experience-container">
+                    <h3>Experience</h3>
+                    <ResumeInformationUnit />
+                </section>
+            </div>
+        );
+    }
 
 function ResumeInformationUnit() {
     return (
