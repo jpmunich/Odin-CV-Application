@@ -1,8 +1,8 @@
 import { useState } from "react";
-import Resume from "./Resume";
+import { Resume } from "./Resume";
 import PersonalInformationForm from "./personal-info/PersonalInformationForm";
-import EducationInformationForm from "./EducationInformationForm";
-import ExperienceInformationForm from "./ExperienceInformationForm";
+import EducationInformationForm from "./education-info/EducationInformationForm";
+import ExperienceInformationForm from "./experience-info/ExperienceInformationForm";
 import "../styles/App.css";
 
 function App() {

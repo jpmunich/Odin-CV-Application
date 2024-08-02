@@ -1,16 +1,12 @@
-import { useState } from 'react';
 import PersonalInformationResumeSection from './personal-info/PersonalInformationResumeSection';
+import EducationInformationResumeSection from './education-info/EducationInformationResumeSection';
 import '../styles/Resume.css';
 
 function Resume({ personalInfo }) {
         return (
             <div className="resume-container">
                 <PersonalInformationResumeSection name={personalInfo.name} email={personalInfo.email} phone={personalInfo.phone} location={personalInfo.location} />
-                <section id="education-container">
-                    <h3>Education</h3>
-                    <ResumeInformationUnit />
-                    <ResumeInformationUnit />
-                </section>
+                <EducationInformationResumeSection />
                 <section id="experience-container">
                     <h3>Experience</h3>
                     <ResumeInformationUnit />
@@ -34,4 +30,4 @@ function ResumeInformationUnit() {
     );
 }
 
-export default Resume;
+export { Resume, ResumeInformationUnit };
