@@ -3,7 +3,9 @@ import '../../styles/Form.css';
 function PersonalInformationForm({ onChange, name, email, phone, location}) {
     return (
         <div className="personal-information-form-container">
-            <h3>Personal Form</h3>
+            <div className="personal-information-header-container">
+                <h3>Personal Form</h3>
+            </div>
             <form action="#">
                 <label htmlFor="name">Full Name:</label>
                 <div className='personal-information-input-container'>
