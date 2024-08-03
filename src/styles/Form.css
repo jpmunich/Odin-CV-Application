@@ -5,7 +5,7 @@
 .form-container {
   padding: 36px;
   color: #213657;
-  width: 40%;
+  width: 45%;
 }
 
 .personal-information-form-container,
@@ -59,4 +59,30 @@ textarea::placeholder {
 
 .bottom-of-form-input {
   margin-bottom: 25px;
+}
+
+.button-container {
+  margin: auto;
+  width: 80%;
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  padding-bottom: 25px;
+}
+
+button {
+  height: 48px;
+  border: none;
+  border-radius: 3px;
+  background-color: #213657;
+  color: whitesmoke;
+  font-size: 0.8rem;
+  font-weight: 700;
+  flex: 1 1 0;
+  padding: 0 0.8em;
+  transition: 0.4s;
+}
+
+button:hover {
+  padding: 0 1.6em;
 }

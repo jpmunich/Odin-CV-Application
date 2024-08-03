@@ -40,7 +40,11 @@ function ExperienceInformationForm() {
                     <div className='experience-information-input-container'>
                         <textarea className="bottom-of-form-input" name="description" id="description" cols="10" rows="4" placeholder='Enter Description'></textarea>
                     </div>
-                    
+                    <div className="button-container">
+                        <button className='delete-button' type="button">Delete</button>
+                        <button className='cancel-button' type="button">Cancel</button>
+                        <button className='save-button' type="button">Save</button>
+                    </div>
                 </form>
             </div>
         );

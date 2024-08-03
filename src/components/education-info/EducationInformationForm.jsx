@@ -36,6 +36,11 @@ function EducationInformationForm() {
                     <div className='education-information-input-container'>
                         <input className="bottom-of-form-input" id="location" name="location" type="text" placeholder='present'/>
                     </div>
+                    <div className="button-container">
+                        <button className='delete-button' type="button">Delete</button>
+                        <button className='cancel-button' type="button">Cancel</button>
+                        <button className='save-button' type="button">Save</button>
+                    </div>
                 </form>
             </div>
         );
