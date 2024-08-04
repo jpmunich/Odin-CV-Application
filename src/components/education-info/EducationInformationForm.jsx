@@ -2,7 +2,7 @@ import { useState } from 'react';
 import chevronDown from '../../assets/chevrons/chevron-down.svg';
 import chevronUp from '../../assets/chevrons/chevron-up.svg';
     
-function EducationInformationForm() {
+function EducationInformationForm({ onSave, onCancel }) {
     const [isActive, setIsActive] = useState(true);
     const handleClick = () => {
         setIsActive(!isActive);
@@ -24,22 +24,22 @@ function EducationInformationForm() {
                     <div className='education-information-input-container'>
                         <input id="degree" name="degree" type="text" placeholder='Bachelor of the Arts'/>
                     </div>
-                    <label htmlFor="start-date">Start Date:</label>
+                    <label htmlFor="education-start-date">Start Date:</label>
                     <div className='education-information-input-container'>
-                        <input id="start-date" name="start-date" type="text" placeholder='05/22'/>
+                        <input id="education-start-date" name="education-start-date" type="text" placeholder='05/22'/>
                     </div>
-                    <label htmlFor="end-date">End Date:</label>
+                    <label htmlFor="education-end-date">End Date:</label>
                     <div className='education-information-input-container'>
-                        <input id="end-date" name="end-date" type="text" placeholder='present'/>
+                        <input id="education-end-date" name="education-end-date" type="text" placeholder='present'/>
                     </div>
-                    <label htmlFor="location">Location:</label>
+                    <label htmlFor="education-location">Location:</label>
                     <div className='education-information-input-container'>
-                        <input className="bottom-of-form-input" id="location" name="location" type="text" placeholder='present'/>
+                        <input className="bottom-of-form-input" id="education-location" name="location" type="text" placeholder='present'/>
                     </div>
                     <div className="button-container">
                         <button className='delete-button' type="button">Delete</button>
-                        <button className='cancel-button' type="button">Cancel</button>
-                        <button className='save-button' type="button">Save</button>
+                        <button onClick={onCancel} className='cancel-button' type="button">Cancel</button>
+                        <button onClick={onSave} className='save-button' type="button">Save</button>
                     </div>
                 </form>
             </div>

@@ -2,7 +2,7 @@ import { useState } from 'react';
 import chevronDown from '../../assets/chevrons/chevron-down.svg';
 import chevronUp from '../../assets/chevrons/chevron-up.svg';
 
-function ExperienceInformationForm() {
+function ExperienceInformationForm({ onSave, onCancel }) {
     const [isActive, setIsActive] = useState(true);
     const handleClick = () => {
         setIsActive(!isActive);
@@ -16,34 +16,34 @@ function ExperienceInformationForm() {
                     <img src={chevronDown} alt="chevron" />
                 </div>
                 <form action="#">
-                    <label htmlFor="company-name">Company Name:</label>
+                    <label htmlFor="company">Company Name:</label>
                     <div className='experience-information-input-container'>
-                        <input id="company-name" name="company-name" type="text" placeholder='Amazon' />
+                        <input id="company" name="company" type="text" placeholder='Amazon' />
                     </div>
-                    <label htmlFor="position-title">Position Title:</label>
+                    <label htmlFor="position">Position Title:</label>
                     <div className='experience-information-input-container'>
-                        <input id="position-title" name="position-title" type="text" placeholder='Software Engineer' />
+                        <input id="position" name="position" type="text" placeholder='Software Engineer' />
                     </div>
-                    <label htmlFor="start-date">Start Date:</label>
+                    <label htmlFor="experience-start-date">Start Date:</label>
                     <div className='experience-information-input-container'>
-                        <input id="start-date" name="start-date" type="text" placeholder='08/22' />
+                        <input id="experience-start-date" name="experience-start-date" type="text" placeholder='08/22' />
                     </div>
-                    <label htmlFor="end-date">End Date:</label>
+                    <label htmlFor="experience-end-date">End Date:</label>
                     <div className='experience-information-input-container'>
-                        <input id="end-date" name="end-date" type="text" placeholder='Present' />
+                        <input id="experience-end-date" name="experience-end-date" type="text" placeholder='Present' />
                     </div>
-                    <label htmlFor="location">Location:</label>
+                    <label htmlFor="experience-location">Location:</label>
                     <div className='experience-information-input-container'>
-                        <input id="location" name="location" type="text" placeholder='Seattle, WA' />
+                        <input id="experience-location" name="experience-location" type="text" placeholder='Seattle, WA' />
                     </div>
-                    <label htmlFor="description">Description:</label>
+                    <label htmlFor="experience-description">Description:</label>
                     <div className='experience-information-input-container'>
-                        <textarea className="bottom-of-form-input" name="description" id="description" cols="10" rows="4" placeholder='Enter Description'></textarea>
+                        <textarea className="bottom-of-form-input" name="experience-description" id="experience-description" cols="10" rows="4" placeholder='Enter Description'></textarea>
                     </div>
                     <div className="button-container">
                         <button className='delete-button' type="button">Delete</button>
-                        <button className='cancel-button' type="button">Cancel</button>
-                        <button className='save-button' type="button">Save</button>
+                        <button onClick={onCancel} className='cancel-button' type="button">Cancel</button>
+                        <button onClick={onSave} className='save-button' type="button">Save</button>
                     </div>
                 </form>
             </div>

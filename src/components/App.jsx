@@ -14,6 +14,23 @@ function App() {
     phone: "(555)-555-5555"
   });
 
+  const [educationInfo, setEducationInfo] = useState({
+    school: "",
+    degree: "",
+    startDate: "",
+    endDate: "",
+    location: ""
+  })
+
+  const [experienceInfo, setExperienceInfo] = useState({
+    company: "",
+    position: "",
+    startDate: "",
+    endDate: "",
+    location: "",
+    description: ""
+  })
+
   const handleChange = (e) => {
     const property = e.target.id;
     setPersonalInfo({
@@ -22,14 +39,82 @@ function App() {
     });
   }
 
+  const handleSave = () => {
+    const schoolValue = document.getElementById("school").value;
+    const degreeValue = document.getElementById("degree").value;
+    const startDateValue = document.getElementById("education-start-date").value;
+    const endDateValue = document.getElementById("education-end-date").value;
+    const locationValue = document.getElementById("education-location").value;
+
+    setEducationInfo({
+      school: schoolValue,
+      degree: degreeValue,
+      startDate: startDateValue,
+      endDate: endDateValue,
+      location: locationValue
+    })
+  }
+
+  const handleSaveExperience = () => {
+    const companyValue = document.getElementById("company").value;
+    const positionValue = document.getElementById("position").value;
+    const startDateValue = document.getElementById("experience-start-date").value;
+    const endDateValue = document.getElementById("experience-end-date").value;
+    const locationValue = document.getElementById("experience-location").value;
+    const descriptionValue = document.getElementById("experience-description").value;
+
+    setExperienceInfo({
+      company: companyValue,
+      position: positionValue,
+      startDate: startDateValue,
+      endDate: endDateValue,
+      location: locationValue,
+      description: descriptionValue
+    })
+  }
+
+  const handleCancelEducation = () => {
+    document.getElementById("school").value = "";
+    document.getElementById("degree").value = "";
+    document.getElementById("education-start-date").value = "";
+    document.getElementById("education-end-date").value = "";
+    document.getElementById("education-location").value = "";
+    
+    setEducationInfo({
+      school: "",
+      degree: "",
+      startDate: "",
+      endDate: "",
+      location: ""
+    })
+  }
+
+  const handleCancelExperience = () => {
+    document.getElementById("company").value = "";
+    document.getElementById("position").value = "";
+    document.getElementById("experience-start-date").value = "";
+    document.getElementById("experience-end-date").value = "";
+    document.getElementById("experience-location").value = "";
+    document.getElementById("experience-description").value = "";
+
+    setExperienceInfo({
+      company: "",
+      position: "",
+      startDate: "",
+      endDate: "",
+      location: "",
+      description: ""
+    })
+  }
+
   return (
     <div className="ui-container">
         <div className="form-container">
             <PersonalInformationForm onChange={handleChange} name={personalInfo.name} email={personalInfo.email} phone={personalInfo.phone} location={personalInfo.location} />
-            <EducationInformationForm />
-            <ExperienceInformationForm />
+            <EducationInformationForm onSave={handleSave} onCancel={handleCancelEducation}/>
+            <ExperienceInformationForm onSave={handleSaveExperience} onCancel={handleCancelExperience}/>
         </div>
-      <Resume personalInfo={personalInfo} />
+      <Resume personalInfo={personalInfo} educationInfo={educationInfo} experienceInfo={experienceInfo}/>
     </div>
   )
 }
