@@ -6,42 +6,29 @@ import '../styles/Resume.css';
 function Resume({ personalInfo, educationInfo, experienceInfo }) {
         return (
             <div className="resume-container">
-                <PersonalInformationResumeSection name={personalInfo.name} email={personalInfo.email} phone={personalInfo.phone} location={personalInfo.location} />
-                <EducationInformationResumeSection educationInfo={educationInfo} />
-                <ExperienceInformationResumeSection experienceInfo={experienceInfo} />
+                <PersonalInformationResumeSection 
+                    name={personalInfo.name} 
+                    email={personalInfo.email} 
+                    phone={personalInfo.phone} 
+                    location={personalInfo.location} 
+                />
+                <EducationInformationResumeSection 
+                    school={educationInfo.school}   
+                    degree={educationInfo.degree} 
+                    startDate={educationInfo.startDate}
+                    endDate={educationInfo.endDate}
+                    location={educationInfo.location} 
+                />
+                <ExperienceInformationResumeSection 
+                    company={experienceInfo.company}
+                    position={experienceInfo.position}
+                    startDate={experienceInfo.startDate}
+                    endDate={experienceInfo.endDate}
+                    location={experienceInfo.location}
+                    description={experienceInfo.description} 
+                />
             </div>
         );
     }
 
-function ResumeInformationUnitEducation({ school, degree, location, startDate, endDate }) {
-    return (
-        <div className="resume-info-container">
-            <div>
-                <p>{startDate} - {endDate}</p>
-                <p>{location}</p>
-            </div>
-            <div>
-                <h4>{school}</h4>
-                <p>{degree}</p>
-            </div>
-        </div>
-    );
-}
-
-function ResumeInformationUnitExperience({ company, startDate, endDate, location, description, position }) {
-    return (
-        <div className='resume-info-container'>
-            <div>
-                <p>{startDate} - {endDate}</p>
-                <p>{location}</p>
-            </div>
-            <div>
-                <h4>{company}</h4>
-                <p>{position}</p>
-                <p>{description}</p>
-            </div>
-        </div>
-    );
-}
-
-export { Resume, ResumeInformationUnitEducation, ResumeInformationUnitExperience };
+export { Resume };

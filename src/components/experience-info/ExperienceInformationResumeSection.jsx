@@ -1,10 +1,17 @@
-import { ResumeInformationUnitExperience } from "../Resume.jsx";
+import ResumeInformationUnitExperience from "./ResumeInformationUnitExperience";
 
-function ExperienceInformationResumeSection({ experienceInfo }) {
+function ExperienceInformationResumeSection({ location, startDate, endDate, description, company, position }) {
     return (
         <section id="experience-container">
             <h3>Experience</h3>
-            <ResumeInformationUnitExperience location={experienceInfo.location} startDate={experienceInfo.startDate} endDate={experienceInfo.endDate} company={experienceInfo.company} description={experienceInfo.description} position={experienceInfo.position} />
+            <ResumeInformationUnitExperience 
+                location={location} 
+                startDate={startDate} 
+                endDate={endDate} 
+                company={company} 
+                description={description} 
+                position={position} 
+            />
         </section>
     );
 }

@@ -1,10 +1,16 @@
-import { ResumeInformationUnitEducation } from '../Resume.jsx';
+import ResumeInformationUnitEducation from './ResumeInformationUnitEducation';
 
-function EducationInformationResumeSection({ educationInfo }) {
+function EducationInformationResumeSection({ school, degree, startDate, endDate, location }) {
     return (
         <section id="education-container">
             <h3>Education</h3>
-            <ResumeInformationUnitEducation school={educationInfo.school} degree={educationInfo.degree} startDate={educationInfo.startDate} endDate={educationInfo.endDate} location={educationInfo.location} />
+            <ResumeInformationUnitEducation 
+                school={school} 
+                degree={degree} 
+                startDate={startDate} 
+                endDate={endDate} 
+                location={location} 
+            />
         </section>
     );
 }
