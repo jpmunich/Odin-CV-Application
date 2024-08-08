@@ -11,8 +11,7 @@ function ExperienceInformationForm({
         createExperienceUnit,
         onUpdateInputValues,
         inputValues,
-        experienceSaves,
-        experienceSave
+        experienceHeaders
     }) {
 
     const [isFormOpen, setIsFormOpen] = useState(true);
@@ -25,11 +24,12 @@ function ExperienceInformationForm({
             <ExperienceInformationFormUnit 
                 onToggleIsFormOpen={toggleIsFormOpen}
                 onSave={onSave}
+                onDelete={onDelete}
                 onCancel={toggleIsExperienceUnitSelected}
                 onDelete={onDelete}
                 inputValues={inputValues}
                 onUpdateInputValues={onUpdateInputValues}
-                experienceSave={experienceSave}
+                experienceHeaders={experienceHeaders}
             />
         );
     } else if (isFormOpen && !isExperienceUnitSelected) {
@@ -39,9 +39,11 @@ function ExperienceInformationForm({
                     <h3>Experience Form</h3>
                     <img src={chevronDown} alt="chevron" />
                 </div>
-                <div>{experienceSaves}</div>
+                <div>{experienceHeaders}</div>
                 <div className='add-experience-section-button-container'>
-                    <button onClick={() => {toggleIsExperienceUnitSelected(); createExperienceUnit();}} className='add-experience-section-button'>Add +</button>
+                    <button onClick={() => {toggleIsExperienceUnitSelected(); createExperienceUnit();}} 
+                        className='add-experience-section-button'
+                    >Add +</button>
                 </div>
             </div>
         );

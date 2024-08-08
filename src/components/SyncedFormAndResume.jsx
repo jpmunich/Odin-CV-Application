@@ -55,19 +55,7 @@ function SyncedFormAndResume() {
         queuedSelectedEducationUnit
       ]);
     };
-  };
 
-  const handleSelectNewEducationUnit = (e) => {
-    setSelectedEducationUnit(educationInfo.find(unit => {
-      return unit.school === e.target.textContent;
-    }));
-    setQueuedSelectedEducationUnit(educationInfo.find(unit => {
-      return unit.school === e.target.textContent;
-    }));
-  }
-  
-  const eduSave = () => {
-    const schoolValue = document.getElementById("school").value;
     const unselectedEduHeaders = educationUnitHeaders.filter(unit => {
       return unit.school !== "" && unit.name !== selectedEducationUnit.school
     });
@@ -89,9 +77,18 @@ function SyncedFormAndResume() {
     }
     handleSetIsPreexistingEducationUnitSelectedFalse();
     toggleIsEducationUnitSelected();
-}
+  };
 
-const eduSaves = educationUnitHeaders.map(unit => {
+  const handleSelectNewEducationUnit = (e) => {
+    setSelectedEducationUnit(educationInfo.find(unit => {
+      return unit.school === e.target.textContent;
+    }));
+    setQueuedSelectedEducationUnit(educationInfo.find(unit => {
+      return unit.school === e.target.textContent;
+    }));
+  }
+
+const educationHeaders = educationUnitHeaders.map(unit => {
     return (
         <div 
             onClick={handleSelectNewEducationUnit} 
@@ -164,14 +161,7 @@ const eduSaves = educationUnitHeaders.map(unit => {
 
   const ResumeInformationUnitsEducation = educationInfo.map(unit => {
       return (
-          <ResumeInformationUnitEducation
-            key={uuidv4()}  
-            school={unit.school} 
-            degree={unit.degree} 
-            startDate={unit.startDate} 
-            endDate={unit.endDate} 
-            location={unit.location}
-          />
+          <ResumeInformationUnitEducation key={uuidv4()} educationInfo={unit} />
       );
   });
 
@@ -272,16 +262,13 @@ const eduSaves = educationUnitHeaders.map(unit => {
       return unit.company !== "" && unit !== selectedExperienceUnit
     });
 
-      if (companyValue !== "") {
-        setExperienceInfo([
-          ...unselectedExperienceUnits,
-          queuedSelectedExperienceUnit
-        ]);
-      };
-  };
+    if (companyValue !== "") {
+      setExperienceInfo([
+        ...unselectedExperienceUnits,
+        queuedSelectedExperienceUnit
+      ]);
+    };
 
-  const experienceSave = () => {
-    const companyValue = document.getElementById("company").value;
     const unselectedExperienceHeaders = experienceUnitHeaders.filter(unit => {
       return unit.company !== "" && unit.name !== selectedExperienceUnit.company
     });
@@ -301,9 +288,10 @@ const eduSaves = educationUnitHeaders.map(unit => {
             }
         ])
     }
+
     handleSetIsPreexistingExperienceUnitSelectedFalse();
     toggleIsExperienceUnitSelected();
-}
+  };
 
 const handleSelectNewExperienceUnit = (e) => {
   setSelectedExperienceUnit(experienceInfo.find(unit => {
@@ -314,7 +302,7 @@ const handleSelectNewExperienceUnit = (e) => {
   }));
 }
 
-  const experienceSaves = experienceUnitHeaders.map(unit => {
+  const experienceHeaders = experienceUnitHeaders.map(unit => {
     return (
         <div 
             onClick={handleSelectNewExperienceUnit} 
@@ -329,15 +317,7 @@ const handleSelectNewExperienceUnit = (e) => {
 
   const ResumeInformationUnitsExperience = experienceInfo.map(unit => {
     return (
-        <ResumeInformationUnitExperience
-          key={uuidv4()}  
-          company={unit.company} 
-          position={unit.position} 
-          startDate={unit.startDate} 
-          endDate={unit.endDate} 
-          location={unit.location}
-          description={unit.description}
-        />
+        <ResumeInformationUnitExperience key={uuidv4()} experienceInfo={unit} />
     );
 });
 
@@ -364,10 +344,7 @@ const handleSelectNewExperienceUnit = (e) => {
         <div className="form-container">
             <PersonalInformationForm 
               onChange={handlePersonalInfoChange} 
-              name={personalInfo.name} 
-              email={personalInfo.email} 
-              phone={personalInfo.phone} 
-              location={personalInfo.location} 
+              personalInfo={personalInfo} 
             />
             <EducationInformationForm 
               onSave={handleSaveEducation} 
@@ -377,8 +354,7 @@ const handleSelectNewExperienceUnit = (e) => {
               onUpdateInputValues={updateInputValuesEducation}
               isEducationUnitSelected={isEducationUnitSelected}
               toggleIsEducationUnitSelected={toggleIsEducationUnitSelected}
-              eduSave={eduSave}
-              eduSaves={eduSaves}
+              educationHeaders={educationHeaders}
               />
             <ExperienceInformationForm 
               onSave={handleSaveExperience} 
@@ -388,8 +364,7 @@ const handleSelectNewExperienceUnit = (e) => {
               onUpdateInputValues={updateInputValuesExperience}
               isExperienceUnitSelected={isExperienceUnitSelected}
               toggleIsExperienceUnitSelected={toggleIsExperienceUnitSelected}
-              experienceSave={experienceSave}
-              experienceSaves={experienceSaves}
+              experienceHeaders={experienceHeaders}
             />
         </div>
       <Resume 

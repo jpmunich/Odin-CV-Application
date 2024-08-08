@@ -6,18 +6,9 @@ import '../styles/Resume.css';
 function Resume({ personalInfo, educationUnits, experienceUnits }) {
         return (
             <div className="resume-container">
-                <PersonalInformationResumeSection 
-                    name={personalInfo.name} 
-                    email={personalInfo.email} 
-                    phone={personalInfo.phone} 
-                    location={personalInfo.location} 
-                />
-                <EducationInformationResumeSection 
-                    educationUnits={educationUnits} 
-                />
-                <ExperienceInformationResumeSection
-                    experienceUnits={experienceUnits} 
-                />
+                <PersonalInformationResumeSection personalInfo={personalInfo} />
+                <EducationInformationResumeSection educationUnits={educationUnits} />
+                <ExperienceInformationResumeSection experienceUnits={experienceUnits} />
             </div>
         );
     }

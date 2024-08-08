@@ -1,13 +1,13 @@
-function ResumeInformationUnitEducation({ school, degree, location, startDate, endDate }) {
+function ResumeInformationUnitEducation({ educationInfo }) {
     return (
         <div className="resume-info-container">
             <div>
-                <p>{startDate} - {endDate}</p>
-                <p>{location}</p>
+                <p>{educationInfo.startDate} - {educationInfo.endDate}</p>
+                <p>{educationInfo.location}</p>
             </div>
             <div>
-                <h4>{school}</h4>
-                <p>{degree}</p>
+                <h4>{educationInfo.school}</h4>
+                <p>{educationInfo.degree}</p>
             </div>
         </div>
     );

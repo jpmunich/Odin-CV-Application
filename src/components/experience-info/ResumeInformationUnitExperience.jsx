@@ -1,14 +1,14 @@
-function ResumeInformationUnitExperience({ company, startDate, endDate, location, description, position }) {
+function ResumeInformationUnitExperience({ experienceInfo }) {
     return (
         <div className='resume-info-container'>
             <div>
-                <p>{startDate} - {endDate}</p>
-                <p>{location}</p>
+                <p>{experienceInfo.startDate} - {experienceInfo.endDate}</p>
+                <p>{experienceInfo.location}</p>
             </div>
             <div>
-                <h4>{company}</h4>
-                <p>{position}</p>
-                <p>{description}</p>
+                <h4>{experienceInfo.company}</h4>
+                <p>{experienceInfo.position}</p>
+                <p>{experienceInfo.description}</p>
             </div>
         </div>
     );
