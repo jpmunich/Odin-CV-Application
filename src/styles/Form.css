@@ -67,7 +67,6 @@ textarea::placeholder {
   display: flex;
   justify-content: center;
   gap: 8px;
-  padding-bottom: 25px;
 }
 
 button {
@@ -85,4 +84,21 @@ button {
 
 button:hover {
   padding: 0 1.6em;
+}
+
+.add-education-section-button-container {
+  display: flex;
+  justify-content: center;
+}
+
+.add-education-section-button {
+  flex: unset;
+  width: 135px;
+  margin: 24px 36px 36px 36px;
+}
+
+.add-education-section-button:hover {
+  flex-grow: 0;
+  height: 60px;
+  width: 175px;
 }
