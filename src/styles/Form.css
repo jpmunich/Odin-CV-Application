@@ -105,3 +105,9 @@ button:hover {
   height: 60px;
   width: 175px;
 }
+
+.save-button,
+.cancel-button,
+.delete-button {
+  margin-bottom: 28px;
+}
