@@ -86,18 +86,21 @@ button:hover {
   padding: 0 1.6em;
 }
 
-.add-education-section-button-container {
+.add-education-section-button-container,
+.add-experience-section-button-container {
   display: flex;
   justify-content: center;
 }
 
-.add-education-section-button {
+.add-education-section-button,
+.add-experience-section-button {
   flex: unset;
   width: 135px;
   margin: 24px 36px 36px 36px;
 }
 
-.add-education-section-button:hover {
+.add-education-section-button:hover,
+.add-experience-section-button:hover {
   flex-grow: 0;
   height: 60px;
   width: 175px;

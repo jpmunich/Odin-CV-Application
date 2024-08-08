@@ -3,7 +3,7 @@ import EducationInformationResumeSection from './education-info/EducationInforma
 import ExperienceInformationResumeSection from './experience-info/ExperienceInformationResumeSection';
 import '../styles/Resume.css';
 
-function Resume({ personalInfo, experienceInfo, educationUnits }) {
+function Resume({ personalInfo, educationUnits, experienceUnits }) {
         return (
             <div className="resume-container">
                 <PersonalInformationResumeSection 
@@ -15,13 +15,8 @@ function Resume({ personalInfo, experienceInfo, educationUnits }) {
                 <EducationInformationResumeSection 
                     educationUnits={educationUnits} 
                 />
-                <ExperienceInformationResumeSection 
-                    company={experienceInfo.company}
-                    position={experienceInfo.position}
-                    startDate={experienceInfo.startDate}
-                    endDate={experienceInfo.endDate}
-                    location={experienceInfo.location}
-                    description={experienceInfo.description} 
+                <ExperienceInformationResumeSection
+                    experienceUnits={experienceUnits} 
                 />
             </div>
         );

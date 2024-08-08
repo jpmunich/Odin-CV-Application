@@ -5,6 +5,7 @@ import PersonalInformationForm from "./personal-info/PersonalInformationForm";
 import EducationInformationForm from "./education-info/EducationInformationForm";
 import ExperienceInformationForm from "./experience-info/ExperienceInformationForm";
 import ResumeInformationUnitEducation from './education-info/ResumeInformationUnitEducation';
+import ResumeInformationUnitExperience from './experience-info/ResumeInformationUnitExperience';
 
 function SyncedFormAndResume() {
   const [personalInfo, setPersonalInfo] = useState({
@@ -23,12 +24,12 @@ function SyncedFormAndResume() {
   const [educationUnitHeaders, setEducationUnitHeaders] = useState([]);
   
 
-  const [experienceInfo, setExperienceInfo] = useState([{}]);
+  const [experienceInfo, setExperienceInfo] = useState([]);
   const [selectedExperienceUnit, setSelectedExperienceUnit] = useState({});
   const [queuedSelectedExperienceUnit, setQueuedSelectedExperienceUnit] = useState({});
   const [isExperienceUnitSelected, setIsExperienceUnitSelected] = useState(false);
   const [isPreexistingExperienceUnitSelected, setIsPreexistingExperienceUnitSelected] = useState(false);
-  const [ExperienceUnitHeaders, setExperienceUnitHeaders] = useState([]);
+  const [experienceUnitHeaders, setExperienceUnitHeaders] = useState([]);
 
   const handlePersonalInfoChange = (e) => {
     const property = e.target.id;
@@ -48,21 +49,12 @@ function SyncedFormAndResume() {
       return unit.school !== "" && unit !== selectedEducationUnit
     });
 
-    if (!isPreexistingEducationUnitSelected) {
-      if (schoolValue !== "") {
-        setEducationInfo([
-          ...unselectedEduUnits,
-          queuedSelectedEducationUnit
-        ]);
-      };
-    } else {
-      if (schoolValue !== "") {
-        setEducationInfo([
-          ...unselectedEduUnits,
-          queuedSelectedEducationUnit
-        ]);
-      };
-    }
+    if (schoolValue !== "") {
+      setEducationInfo([
+        ...unselectedEduUnits,
+        queuedSelectedEducationUnit
+      ]);
+    };
   };
 
   const handleSelectNewEducationUnit = (e) => {
@@ -79,7 +71,6 @@ function SyncedFormAndResume() {
     const unselectedEduHeaders = educationUnitHeaders.filter(unit => {
       return unit.school !== "" && unit.name !== selectedEducationUnit.school
     });
-    console.log(isPreexistingEducationUnitSelected)
 
     if (!isPreexistingEducationUnitSelected && schoolValue !== "") {
         setEducationUnitHeaders([
@@ -184,25 +175,6 @@ const eduSaves = educationUnitHeaders.map(unit => {
       );
   });
 
-  const handleSaveExperience = () => {
-    const companyValue = document.getElementById("company").value;
-    const positionValue = document.getElementById("position").value;
-    const startDateValue = document.getElementById("experience-start-date").value;
-    const endDateValue = document.getElementById("experience-end-date").value;
-    const locationValue = document.getElementById("experience-location").value;
-    const descriptionValue = document.getElementById("experience-description").value;
-
-    setExperienceInfo([
-      ...experienceInfo,
-      {
-      company: companyValue,
-      position: positionValue,
-      startDate: startDateValue,
-      endDate: endDateValue,
-      location: locationValue,
-      description: descriptionValue
-    }]);
-  };
 
   const handleDeleteEducation = () => {
     document.getElementById("school").value = "";
@@ -219,6 +191,155 @@ const eduSaves = educationUnitHeaders.map(unit => {
       location: ""
     }]);
   };
+
+  /* Experience 
+    Section Begins
+    Here!! */
+
+
+  const toggleIsExperienceUnitSelected = () => setIsExperienceUnitSelected(!isExperienceUnitSelected);
+  const handleSetIsPreexistingExperienceUnitSelectedTrue = () => setIsPreexistingExperienceUnitSelected(true);
+  const handleSetIsPreexistingExperienceUnitSelectedFalse = () => setIsPreexistingExperienceUnitSelected(false);
+
+  const createExperienceUnit = () => {
+    setSelectedExperienceUnit({
+      company: "",
+      position: "",
+      startDate: "",
+      endDate: "",
+      location: "",
+      description: ""
+      }
+    )
+
+    setQueuedSelectedExperienceUnit({
+      company: "",
+      position: "",
+      startDate: "",
+      endDate: "",
+      location: "",
+      description: ""
+      }
+    )
+
+    setExperienceInfo([
+        ...experienceInfo,
+        {
+          company: "",
+          position: "",
+          startDate: "",
+          endDate: "",
+          location: "",
+          description: ""
+        }
+    ])
+  }
+
+  const updateInputValuesExperience = (e) => {
+    if (e.target.id === "company" || e.target.id === "position") {
+      const property = e.target.id;
+      setQueuedSelectedExperienceUnit({
+        ...queuedSelectedExperienceUnit,
+        [property]: e.target.value
+      })
+    } else if (e.target.id === "experience-start-date") {
+      setQueuedSelectedExperienceUnit({
+        ...queuedSelectedExperienceUnit,
+        startDate: e.target.value
+      })
+    } else if (e.target.id === "experience-end-date") {
+      setQueuedSelectedExperienceUnit({
+        ...queuedSelectedExperienceUnit,
+        endDate: e.target.value
+      })
+    } else if (e.target.id === "experience-location") {
+      setQueuedSelectedExperienceUnit({
+        ...queuedSelectedExperienceUnit,
+        location: e.target.value
+      })
+    } else if (e.target.id === "experience-description") {
+      setQueuedSelectedExperienceUnit({
+        ...queuedSelectedExperienceUnit,
+        description: e.target.value
+      })
+    }
+  }
+
+  const handleSaveExperience = () => {
+    const companyValue = document.getElementById("company").value;
+
+    const unselectedExperienceUnits = experienceInfo.filter(unit => {
+      return unit.company !== "" && unit !== selectedExperienceUnit
+    });
+
+      if (companyValue !== "") {
+        setExperienceInfo([
+          ...unselectedExperienceUnits,
+          queuedSelectedExperienceUnit
+        ]);
+      };
+  };
+
+  const experienceSave = () => {
+    const companyValue = document.getElementById("company").value;
+    const unselectedExperienceHeaders = experienceUnitHeaders.filter(unit => {
+      return unit.company !== "" && unit.name !== selectedExperienceUnit.company
+    });
+
+    if (!isPreexistingExperienceUnitSelected && companyValue !== "") {
+        setExperienceUnitHeaders([
+            ...experienceUnitHeaders,
+            {
+                name: queuedSelectedExperienceUnit.company
+            }
+        ])
+    } else {
+        setExperienceUnitHeaders([
+            ...unselectedExperienceHeaders,
+            {
+              name: queuedSelectedExperienceUnit.company,
+            }
+        ])
+    }
+    handleSetIsPreexistingExperienceUnitSelectedFalse();
+    toggleIsExperienceUnitSelected();
+}
+
+const handleSelectNewExperienceUnit = (e) => {
+  setSelectedExperienceUnit(experienceInfo.find(unit => {
+    return unit.company === e.target.textContent;
+  }));
+  setQueuedSelectedExperienceUnit(experienceInfo.find(unit => {
+    return unit.company === e.target.textContent;
+  }));
+}
+
+  const experienceSaves = experienceUnitHeaders.map(unit => {
+    return (
+        <div 
+            onClick={handleSelectNewExperienceUnit} 
+            key={uuidv4()}
+        >
+            <h3 onClick={() => {toggleIsExperienceUnitSelected(); handleSetIsPreexistingExperienceUnitSelectedTrue();}}
+                className='experience-information-header-container' 
+            >{unit.name}</h3>
+        </div>
+    );
+});
+
+  const ResumeInformationUnitsExperience = experienceInfo.map(unit => {
+    return (
+        <ResumeInformationUnitExperience
+          key={uuidv4()}  
+          company={unit.company} 
+          position={unit.position} 
+          startDate={unit.startDate} 
+          endDate={unit.endDate} 
+          location={unit.location}
+          description={unit.description}
+        />
+    );
+});
 
   const handleDeleteExperience = () => {
     document.getElementById("company").value = "";
@@ -262,12 +383,19 @@ const eduSaves = educationUnitHeaders.map(unit => {
             <ExperienceInformationForm 
               onSave={handleSaveExperience} 
               onDelete={handleDeleteExperience} 
+              createExperienceUnit={createExperienceUnit}
+              inputValues={queuedSelectedExperienceUnit}
+              onUpdateInputValues={updateInputValuesExperience}
+              isExperienceUnitSelected={isExperienceUnitSelected}
+              toggleIsExperienceUnitSelected={toggleIsExperienceUnitSelected}
+              experienceSave={experienceSave}
+              experienceSaves={experienceSaves}
             />
         </div>
       <Resume 
         personalInfo={personalInfo} 
-        experienceInfo={experienceInfo[0]} 
         educationUnits={ResumeInformationUnitsEducation}
+        experienceUnits={ResumeInformationUnitsExperience}
       />
     </div>
   );

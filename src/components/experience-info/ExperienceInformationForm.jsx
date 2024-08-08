@@ -1,56 +1,53 @@
 import { useState } from 'react';
 import chevronDown from '../../assets/chevrons/chevron-down.svg';
 import chevronUp from '../../assets/chevrons/chevron-up.svg';
+import ExperienceInformationFormUnit from './ExperienceInformationFormUnit';
 
-function ExperienceInformationForm({ onSave, onCancel }) {
-    const [isActive, setIsActive] = useState(true);
-    const handleClick = () => {
-        setIsActive(!isActive);
+function ExperienceInformationForm({ 
+        onSave, 
+        onDelete,
+        isExperienceUnitSelected,
+        toggleIsExperienceUnitSelected,
+        createExperienceUnit,
+        onUpdateInputValues,
+        inputValues,
+        experienceSaves,
+        experienceSave
+    }) {
+
+    const [isFormOpen, setIsFormOpen] = useState(true);
+    const toggleIsFormOpen = () => {
+        setIsFormOpen(!isFormOpen);
     }
 
-    if (isActive) {
+    if (isFormOpen && isExperienceUnitSelected) {
         return (
-            <div className="experience-information-form-container">
-                <div onClick={handleClick} className="experience-information-header-container">
+            <ExperienceInformationFormUnit 
+                onToggleIsFormOpen={toggleIsFormOpen}
+                onSave={onSave}
+                onCancel={toggleIsExperienceUnitSelected}
+                onDelete={onDelete}
+                inputValues={inputValues}
+                onUpdateInputValues={onUpdateInputValues}
+                experienceSave={experienceSave}
+            />
+        );
+    } else if (isFormOpen && !isExperienceUnitSelected) {
+        return (
+            <div className='experience-information-form-container'>
+                <div onClick={toggleIsFormOpen} className="experience-information-header-container">
                     <h3>Experience Form</h3>
                     <img src={chevronDown} alt="chevron" />
                 </div>
-                <form action="#">
-                    <label htmlFor="company">Company Name:</label>
-                    <div className='experience-information-input-container'>
-                        <input id="company" name="company" type="text" placeholder='Amazon' />
-                    </div>
-                    <label htmlFor="position">Position Title:</label>
-                    <div className='experience-information-input-container'>
-                        <input id="position" name="position" type="text" placeholder='Software Engineer' />
-                    </div>
-                    <label htmlFor="experience-start-date">Start Date:</label>
-                    <div className='experience-information-input-container'>
-                        <input id="experience-start-date" name="experience-start-date" type="text" placeholder='08/22' />
-                    </div>
-                    <label htmlFor="experience-end-date">End Date:</label>
-                    <div className='experience-information-input-container'>
-                        <input id="experience-end-date" name="experience-end-date" type="text" placeholder='Present' />
-                    </div>
-                    <label htmlFor="experience-location">Location:</label>
-                    <div className='experience-information-input-container'>
-                        <input id="experience-location" name="experience-location" type="text" placeholder='Seattle, WA' />
-                    </div>
-                    <label htmlFor="experience-description">Description:</label>
-                    <div className='experience-information-input-container'>
-                        <textarea className="bottom-of-form-input" name="experience-description" id="experience-description" cols="10" rows="4" placeholder='Enter Description'></textarea>
-                    </div>
-                    <div className="button-container">
-                        <button className='delete-button' type="button">Delete</button>
-                        <button onClick={onCancel} className='cancel-button' type="button">Cancel</button>
-                        <button onClick={onSave} className='save-button' type="button">Save</button>
-                    </div>
-                </form>
+                <div>{experienceSaves}</div>
+                <div className='add-experience-section-button-container'>
+                    <button onClick={() => {toggleIsExperienceUnitSelected(); createExperienceUnit();}} className='add-experience-section-button'>Add +</button>
+                </div>
             </div>
         );
     } else {
         return (
-            <div onClick={handleClick} className="experience-information-form-container">
+            <div onClick={toggleIsFormOpen} className="experience-information-form-container">
                 <div className="experience-information-header-container">
                     <h3>Experience Form</h3>
                     <img src={chevronUp} alt="chevron" />
