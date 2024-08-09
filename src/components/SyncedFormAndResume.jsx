@@ -58,21 +58,31 @@ function SyncedFormAndResume() {
     };
 
     const unselectedEduHeaders = educationUnitHeaders.filter(unit => {
-      return unit.school !== "" && unit.name !== selectedEducationUnit.school
+      return unit.school !== "" && (unit.school !== selectedEducationUnit.school
+      || unit.degree !== selectedEducationUnit.degree || unit.startDate !== selectedEducationUnit.startDate
+      || unit.endDate !== selectedEducationUnit.endDate || unit.location !== selectedEducationUnit.location)
     });
 
     if (!isPreexistingEducationUnitSelected && schoolValue !== "") {
         setEducationUnitHeaders([
             ...educationUnitHeaders,
             {
-                name: queuedSelectedEducationUnit.school
+                school: queuedSelectedEducationUnit.school,
+                degree: queuedSelectedEducationUnit.degree,
+                startDate: queuedSelectedEducationUnit.startDate,
+                endDate: queuedSelectedEducationUnit.endDate,
+                location: queuedSelectedEducationUnit.location
             }
         ])
     } else {
         setEducationUnitHeaders([
             ...unselectedEduHeaders,
             {
-              name: queuedSelectedEducationUnit.school,
+              school: queuedSelectedEducationUnit.school,
+              degree: queuedSelectedEducationUnit.degree,
+              startDate: queuedSelectedEducationUnit.startDate,
+              endDate: queuedSelectedEducationUnit.endDate,
+              location: queuedSelectedEducationUnit.location
             }
         ])
     }
@@ -97,7 +107,7 @@ const educationHeaders = educationUnitHeaders.map(unit => {
         >
             <h3 onClick={() => {toggleIsEducationUnitSelected(); handleSetIsPreexistingEducationUnitSelectedTrue();}}
                 className='education-information-header-container' 
-            >{unit.name}</h3>
+            >{unit.school}</h3>
         </div>
     );
 });
@@ -187,7 +197,6 @@ const educationHeaders = educationUnitHeaders.map(unit => {
     Section Begins
     Here!! */
 
-
   const toggleIsExperienceUnitSelected = () => setIsExperienceUnitSelected(!isExperienceUnitSelected);
   const handleSetIsPreexistingExperienceUnitSelectedTrue = () => setIsPreexistingExperienceUnitSelected(true);
   const handleSetIsPreexistingExperienceUnitSelectedFalse = () => setIsPreexistingExperienceUnitSelected(false);
@@ -271,21 +280,34 @@ const educationHeaders = educationUnitHeaders.map(unit => {
     };
 
     const unselectedExperienceHeaders = experienceUnitHeaders.filter(unit => {
-      return unit.company !== "" && unit.name !== selectedExperienceUnit.company
+      return unit.company !== "" && (unit.company !== selectedExperienceUnit.company 
+        || unit.position !== selectedExperienceUnit.position || unit.startDate !== selectedExperienceUnit.startDate
+        || unit.endDate !== selectedExperienceUnit.endDate || unit.location !== selectedExperienceUnit.location
+        || unit.description !== selectedExperienceUnit.description)
     });
 
     if (!isPreexistingExperienceUnitSelected && companyValue !== "") {
         setExperienceUnitHeaders([
             ...experienceUnitHeaders,
             {
-                name: queuedSelectedExperienceUnit.company
+                company: queuedSelectedExperienceUnit.company,
+                position: queuedSelectedExperienceUnit.position,
+                startDate: queuedSelectedExperienceUnit.startDate,
+                endDate: queuedSelectedExperienceUnit.endDate,
+                location: queuedSelectedExperienceUnit.location,
+                description: queuedSelectedExperienceUnit.description
             }
         ])
     } else {
         setExperienceUnitHeaders([
             ...unselectedExperienceHeaders,
             {
-              name: queuedSelectedExperienceUnit.company,
+              company: queuedSelectedExperienceUnit.company,
+              position: queuedSelectedExperienceUnit.position,
+              startDate: queuedSelectedExperienceUnit.startDate,
+              endDate: queuedSelectedExperienceUnit.endDate,
+              location: queuedSelectedExperienceUnit.location,
+              description: queuedSelectedExperienceUnit.description
             }
         ])
     }
@@ -311,7 +333,7 @@ const handleSelectNewExperienceUnit = (e) => {
         >
             <h3 onClick={() => {toggleIsExperienceUnitSelected(); handleSetIsPreexistingExperienceUnitSelectedTrue();}}
                 className='experience-information-header-container' 
-            >{unit.name}</h3>
+            >{unit.company}</h3>
         </div>
     );
 });
