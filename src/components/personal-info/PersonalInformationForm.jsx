@@ -25,6 +25,15 @@ function PersonalInformationForm({ onChange, personalInfo }) {
                         placeholder='helloworld@helloworld.com'
                     />
                 </div>
+                <label htmlFor="address">Address:</label>
+                <div className='personal-information-input-container'>
+                    <input value={personalInfo.address} onChange={onChange} 
+                        id="address" 
+                        name="address" 
+                        type="text" 
+                        placeholder='22008 43rd Dr. SE'
+                    />
+                </div>
                 <label htmlFor="phone">Phone Number:</label>
                 <div className='personal-information-input-container'>
                     <input value={personalInfo.phone} onChange={onChange} 

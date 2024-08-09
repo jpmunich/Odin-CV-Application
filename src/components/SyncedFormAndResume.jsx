@@ -12,6 +12,7 @@ function SyncedFormAndResume() {
     name: "John Doe",
     address: "22008 43 Dr SE",
     location: "Münich, Germany 56079",
+    address: "22008 43rd Dr. SE",
     email: "concernedape08@gmail.com",
     phone: "(555)-555-5555"
   });

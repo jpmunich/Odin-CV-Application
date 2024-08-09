@@ -6,7 +6,7 @@ function PersonalInformationResumeSection({ personalInfo }) {
             </header>
             <section id="header-info-container">
                 <div id="header-info-top-column">
-                    <p>22008 43rd Dr. SE  |</p>
+                    <p>{personalInfo.address}  |</p>
                     <p>{personalInfo.location}  |</p>
                     <p>{personalInfo.phone}</p>
                 </div>
