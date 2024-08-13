@@ -31,6 +31,7 @@ label {
   font-weight: 500;
   display: block;
   padding: 0.8em 0 0.8em 1em;
+  pointer-events: none;
 }
 
 .personal-information-input-container,
@@ -49,12 +50,19 @@ textarea {
   border-radius: 4px;
   background-color: #d6e6f3;
   color: #213657;
+  transition: 0.5s;
 }
 
 input::placeholder,
 textarea::placeholder {
   font-weight: 500;
   color: #6c7a86af;
+}
+
+input:hover,
+textarea:hover {
+  background-color: #bfd4e6;
+  padding: 0.9em 0.65em;
 }
 
 .bottom-of-form-input {
@@ -84,6 +92,7 @@ button {
 
 button:hover {
   padding: 0 1.6em;
+  background-color: #35568d;
 }
 
 .add-education-section-button-container,
