@@ -24,7 +24,7 @@ function EducationInformationForm({
                 onSave={onSave}
                 onDelete={onDelete}
                 onCancel={toggleIsEducationUnitSelected}
-                onIsFormOpen={toggleIsFormOpen}
+                onToggleIsFormOpen={toggleIsFormOpen}
                 inputValues={inputValues}
                 onUpdateInputValues={onUpdateInputValues}
             />
