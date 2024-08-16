@@ -11,7 +11,7 @@ function EducationInformationFormUnit({ onSave, onCancel, onDelete, onToggleIsFo
                 <label htmlFor="school">School:</label>
                 <div className='education-information-input-container'>
                     <input onChange={onUpdateInputValues} value={inputValues.school} 
-                        id="school" 
+                        className="school" id="school" 
                         name="school" 
                         type="text" 
                         placeholder='Carnegie Mellon University'
@@ -20,7 +20,7 @@ function EducationInformationFormUnit({ onSave, onCancel, onDelete, onToggleIsFo
                 <label htmlFor="degree">Degree:</label>
                 <div className='education-information-input-container'>
                     <input onChange={onUpdateInputValues} value={inputValues.degree} 
-                        id="degree" 
+                        className="degree" id="degree" 
                         name="degree" 
                         type="text" 
                         placeholder='Bachelor of the Arts'/>
@@ -28,7 +28,7 @@ function EducationInformationFormUnit({ onSave, onCancel, onDelete, onToggleIsFo
                 <label htmlFor="education-start-date">Start Date:</label>
                 <div className='education-information-input-container'>
                    <input onChange={onUpdateInputValues} value={inputValues.startDate} 
-                        id="education-start-date" 
+                        className="startDate" id="education-start-date" 
                         name="education-start-date" 
                         type="text" 
                         placeholder='05/22'
@@ -37,17 +37,16 @@ function EducationInformationFormUnit({ onSave, onCancel, onDelete, onToggleIsFo
                 <label htmlFor="education-end-date">End Date:</label>
                 <div className='education-information-input-container'>
                     <input onChange={onUpdateInputValues} value={inputValues.endDate} 
-                        id="education-end-date" 
+                        className="endDate" id="education-end-date" 
                         name="education-end-date" 
                         type="text" 
                         placeholder='present'
                     />
                 </div>
                 <label htmlFor="education-location">Location:</label>
-                <div className='education-information-input-container'>
+                <div className='education-information-input-container bottom-of-form-input'>
                     <input onChange={onUpdateInputValues} value={inputValues.location} 
-                        className="bottom-of-form-input" 
-                        id="education-location" 
+                        className="location" id="education-location" 
                         name="location" 
                         type="text" 
                         placeholder='present'

@@ -11,7 +11,7 @@ function ExperienceInformationFormUnit({ onToggleIsFormOpen, onSave, onCancel, o
                 <label htmlFor="company">Company Name:</label>
                 <div className='experience-information-input-container'>
                     <input value={inputValues.company} onChange={onUpdateInputValues} 
-                        id="company" 
+                        className="company" id="company" 
                         name="company" 
                         type="text" 
                         placeholder='Amazon' 
@@ -20,7 +20,7 @@ function ExperienceInformationFormUnit({ onToggleIsFormOpen, onSave, onCancel, o
                 <label htmlFor="position">Position Title:</label>
                 <div className='experience-information-input-container'>
                     <input value={inputValues.position} onChange={onUpdateInputValues} 
-                        id="position" 
+                        className="position" id="position" 
                         name="position" 
                         type="text" 
                         placeholder='Software Engineer' 
@@ -29,7 +29,7 @@ function ExperienceInformationFormUnit({ onToggleIsFormOpen, onSave, onCancel, o
                 <label htmlFor="experience-start-date">Start Date:</label>
                 <div className='experience-information-input-container'>
                     <input value={inputValues.startDate} onChange={onUpdateInputValues} 
-                        id="experience-start-date" 
+                        className="startDate" id="experience-start-date" 
                         name="experience-start-date" 
                         type="text" 
                         placeholder='08/22' 
@@ -38,7 +38,7 @@ function ExperienceInformationFormUnit({ onToggleIsFormOpen, onSave, onCancel, o
                 <label htmlFor="experience-end-date">End Date:</label>
                 <div className='experience-information-input-container'>
                     <input value={inputValues.endDate} onChange={onUpdateInputValues} 
-                        id="experience-end-date" 
+                        className="endDate" id="experience-end-date" 
                         name="experience-end-date" 
                         type="text" 
                         placeholder='Present' 
@@ -47,18 +47,17 @@ function ExperienceInformationFormUnit({ onToggleIsFormOpen, onSave, onCancel, o
                 <label htmlFor="experience-location">Location:</label>
                 <div className='experience-information-input-container'>
                     <input value={inputValues.location} onChange={onUpdateInputValues} 
-                        id="experience-location"   
+                        className="location" id="experience-location"   
                         name="experience-location" 
                         type="text" 
                         placeholder='Seattle, WA' 
                     />
                 </div>
                 <label htmlFor="experience-description">Description:</label>
-                <div className='experience-information-input-container'>
+                <div className='experience-information-input-container bottom-of-form-input'>
                     <textarea value={inputValues.description} onChange={onUpdateInputValues} 
-                        className="bottom-of-form-input" 
-                        name="experience-description" 
-                        id="experience-description" 
+                        data-description="description" className="description" id="experience-description"
+                        name="experience-description"  
                         cols="10" rows="4" 
                         placeholder='Enter Description'
                     ></textarea>

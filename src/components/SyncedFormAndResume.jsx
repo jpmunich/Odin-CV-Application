@@ -91,26 +91,11 @@ function SyncedFormAndResume() {
   });   
 
   const updateInputValuesEducation = (e) => {
-    if (e.target.id === "school" || e.target.id === "degree") {
-      const property = e.target.id;
+    if (e.target.className === "school" || e.target.className === "degree" || e.target.className === "startDate" || e.target.className === "endDate" || e.target.className === "location") {
+      const property = e.target.className;
       setQueuedSelectedEducationUnit({
         ...queuedSelectedEducationUnit,
         [property]: e.target.value
-      })
-    } else if (e.target.id === "education-start-date") {
-      setQueuedSelectedEducationUnit({
-        ...queuedSelectedEducationUnit,
-        startDate: e.target.value
-      })
-    } else if (e.target.id === "education-end-date") {
-      setQueuedSelectedEducationUnit({
-        ...queuedSelectedEducationUnit,
-        endDate: e.target.value
-      })
-    } else if (e.target.id === "education-location") {
-      setQueuedSelectedEducationUnit({
-        ...queuedSelectedEducationUnit,
-        location: e.target.value
       })
     }
   }
@@ -159,34 +144,14 @@ function SyncedFormAndResume() {
   }
 
   const updateInputValuesExperience = (e) => {
-    if (e.target.id === "company" || e.target.id === "position") {
-      const property = e.target.id;
+    if (e.target.className === "company" || e.target.className === "position" || e.target.className === "startDate" || e.target.className === "endDate" || e.target.className === "location" || e.target.className === "description") {
+      const property = e.target.className;
       setQueuedSelectedExperienceUnit({
         ...queuedSelectedExperienceUnit,
         [property]: e.target.value
       })
-    } else if (e.target.id === "experience-start-date") {
-      setQueuedSelectedExperienceUnit({
-        ...queuedSelectedExperienceUnit,
-        startDate: e.target.value
-      })
-    } else if (e.target.id === "experience-end-date") {
-      setQueuedSelectedExperienceUnit({
-        ...queuedSelectedExperienceUnit,
-        endDate: e.target.value
-      })
-    } else if (e.target.id === "experience-location") {
-      setQueuedSelectedExperienceUnit({
-        ...queuedSelectedExperienceUnit,
-        location: e.target.value
-      })
-    } else if (e.target.id === "experience-description") {
-      setQueuedSelectedExperienceUnit({
-        ...queuedSelectedExperienceUnit,
-        description: e.target.value
-      })
-    }
   }
+}
 
   const handleSaveExperience = () => {
     const companyValue = document.getElementById("company").value;
