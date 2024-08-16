@@ -72,12 +72,8 @@ function SyncedFormAndResume() {
   };
 
   const handleSelectNewEducationUnit = (e) => {
-    setSelectedEducationUnit(educationInfo.find(unit => {
-      return unit.school === e.target.textContent;
-    }));
-    setQueuedSelectedEducationUnit(educationInfo.find(unit => {
-      return unit.school === e.target.textContent;
-    }));
+    setSelectedEducationUnit(educationInfo.find(unit => unit.school === e.target.textContent));
+    setQueuedSelectedEducationUnit(educationInfo.find(unit => unit.school === e.target.textContent));
   }
 
   const educationHeaders = educationUnitHeaders.map(unit => {
@@ -103,10 +99,6 @@ function SyncedFormAndResume() {
   const createEducationUnit = () => {
     setSelectedEducationUnit({school: "", degree: "", startDate: "", endDate: "", location: ""})
     setQueuedSelectedEducationUnit({school: "", degree: "", startDate: "", endDate: "", location: ""})
-    setEducationInfo([
-        ...educationInfo,
-        {school: "", degree: "", startDate: "", endDate: "", location: ""}
-    ])
   }
 
   const ResumeInformationUnitsEducation = educationInfo.map(unit => {
@@ -137,10 +129,6 @@ function SyncedFormAndResume() {
   const createExperienceUnit = () => {
     setSelectedExperienceUnit({company: "", position: "", startDate: "", endDate: "", location: "", description: ""})
     setQueuedSelectedExperienceUnit({company: "", position: "", startDate: "", endDate: "", location: "", description: ""})
-    setExperienceInfo([
-        ...experienceInfo,
-        {company: "", position: "", startDate: "", endDate: "", location: "", description: ""}
-    ])
   }
 
   const updateInputValuesExperience = (e) => {
@@ -182,12 +170,8 @@ function SyncedFormAndResume() {
   };
 
 const handleSelectNewExperienceUnit = (e) => {
-  setSelectedExperienceUnit(experienceInfo.find(unit => {
-    return unit.company === e.target.textContent;
-  }));
-  setQueuedSelectedExperienceUnit(experienceInfo.find(unit => {
-    return unit.company === e.target.textContent;
-  }));
+  setSelectedExperienceUnit(experienceInfo.find(unit => unit.company === e.target.textContent));
+  setQueuedSelectedExperienceUnit(experienceInfo.find(unit => unit.company === e.target.textContent));
 }
 
   const experienceHeaders = experienceUnitHeaders.map(unit => {
