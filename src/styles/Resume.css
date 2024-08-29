@@ -55,3 +55,15 @@
   gap: 16px;
   color: #213657;
 }
+
+.resume-info-left {
+  width: 25%;
+}
+
+.resume-info-right {
+  width: 75%;
+}
+
+h4 {
+  padding-bottom: 4px;
+}
