@@ -64,6 +64,13 @@
   input {
     font-size: 0.7rem;
   }
+
+  #header-info-top-column {
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 0px;
+  }
 }
 
 @media (max-width: 472px) {

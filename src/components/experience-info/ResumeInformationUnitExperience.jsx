@@ -9,7 +9,7 @@ function ResumeInformationUnitExperience({ experienceInfo }) {
       </div>
       <div className="resume-info-right">
         <h4>{experienceInfo.company}</h4>
-        <p>{experienceInfo.position}</p>
+        <h6>{experienceInfo.position}</h6>
         <p>{experienceInfo.description}</p>
       </div>
     </div>
